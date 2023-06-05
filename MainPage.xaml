@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ER_evaluacion2.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Label FontSize="30" HorizontalOptions="Center">Bienvenido a la recarga de Telefono</Label>
+
+            <Label
+                Text="Ingrese su numero de telefono"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="18"
+                HorizontalOptions="Center" />
+            <Editor  Placeholder="Ingresa aqui tu numero de telefono"
+                Text="{Binding Text}"
+                HeightRequest="10" >
+
+            </Editor>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
+                <Picker x:Name="picker"
+                    Title="Selecciona una operadora">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Claro</x:String>
+                            <x:String>Movistar</x:String>
+                            <x:String>Twenti</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <StackLayout Grid.Column="1" >
+                    <RadioButton Content="3 dólares" GroupName="Precio" />
+                    <RadioButton Content="5 dólares" GroupName="Precio" />
+                    <RadioButton Content="10 dólares" GroupName="Precio" />
+                </StackLayout>
+            </Grid>
+            <Button
+                x:Name="Recarga"
+                Text="Recargar Celular"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
